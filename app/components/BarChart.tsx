@@ -85,7 +85,7 @@ const BarChart: React.FC<Props> = ({ data }) => {
       )}
       <div>
         <div
-          className={`flex w-[90vw] flex-col items-center justify-center lg:w-[72vw] md:w-[80vw]`}
+          className={`flex w-[90vw] flex-col items-center justify-center lg:w-[62vw] md:w-[80vw]`}
         >
           <Bar data={chartData} options={options} className="" />
         </div>
