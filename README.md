@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pokémon Types Distribution Visualizer
+
+This is a Next.js application that fetches data from the PokéAPI and visualizes the distribution of Pokémon types using a bar chart.
+
+## Description
+
+This application allows users to see the distribution of Pokémon types from the first generation of Pokémon (151 Pokémon) and the distribution of single-type vs dual-type Pokémon.
+Users can toggle between viewing counts and percentages of each type and filter Pokémon by name.
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```
+   git clone https://github.com/renathomas/pokemon-analytics.git
+   cd pokemon-analytics
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```
+   npm install
 
-## Learn More
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Run the application:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```
+   npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Getting Tested
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Because you are using Babel for testing transform logic, ensure you have the necessary presets/plugins in the Babel configuration (babel.config.js):
+   ```
+   module.exports ={
+       "presets": [
+       "@babel/preset-env",
+       "@babel/preset-typescript"
+       ]
+   }
+2. Test the transform lgic:
+    ```
+    npm run test
+
+## Features
+
+- Fetches Pokémon data from the PokéAPI.
+- Visualizes the count of Pokémon types using a bar chart.
+- Visualizes the distribution of single-type vs dual-type Pokémon using a doughnut chart
+- Search functionality to filter Pokémon by name.
+- Toggle between showing counts and percentages.
+- Responsive design using Tailwind CSS.
+- Add unit tests for the data transformation logic
