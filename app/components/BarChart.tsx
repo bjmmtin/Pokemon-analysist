@@ -84,21 +84,10 @@ const BarChart: React.FC<Props> = ({ data }) => {
         </div>
       )}
       <div>
-        <div className={`flex w-[90vw] flex-col items-center justify-center lg:w-[72vw] md:w-[80vw]`}>
-          {total > 0 ? (
-            <Bar data={chartData} options={options} className="" />
-          ) : (
-            <div className="text-[24px] flex text-[#555] w-full justify-center items-center font-bold mt-50px p-5 ">
-              <Image
-                src="/warning.png"
-                alt="waring icon"
-                className="mr-3"
-                width={48}
-                height={48}
-              />
-              <p className="mt-1">No Pokémon Types Found </p>
-            </div>
-          )}
+        <div
+          className={`flex w-[90vw] flex-col items-center justify-center lg:w-[72vw] md:w-[80vw]`}
+        >
+          <Bar data={chartData} options={options} className="" />
         </div>
       </div>
     </div>
