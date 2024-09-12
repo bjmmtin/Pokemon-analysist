@@ -40,7 +40,7 @@ const Filter = () => {
           }
           type="text"
           placeholder="Search Pokémon by name..."
-          className="p-2 rounded-e-md md:w-[400px] outline-none w-[250px]  shadow-2xl  "
+          className="p-2 rounded-e-md lg:w-[400px] outline-none md:w-[250px] w-[150px]  shadow-2xl  "
           value={searchText}
           onChange={(e) => setSearch(e.target.value)}
         />

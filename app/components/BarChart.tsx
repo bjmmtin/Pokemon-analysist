@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
+import Image from "next/image";
 
 Chart.register(...registerables);
 
@@ -70,7 +71,7 @@ const BarChart: React.FC<Props> = ({ data }) => {
   };
 
   return (
-    <div className="mb-8 flex p-8 shadow-2xl rounded-md flex-col items-center ">
+    <div className="mb-8 flex p-8 shadow-2xl justify-center rounded-md flex-col items-center ">
       {total > 0 && (
         <div className="w-full">
           {" "}
@@ -83,11 +84,20 @@ const BarChart: React.FC<Props> = ({ data }) => {
         </div>
       )}
       <div>
-        <div className={`flex w-[90vw] lg:w-[72vw] md:w-[80vw]`}>
+        <div className={`flex w-[90vw] flex-col items-center justify-center lg:w-[72vw] md:w-[80vw]`}>
           {total > 0 ? (
             <Bar data={chartData} options={options} className="" />
           ) : (
-            <strong className="p-4">No Data to show</strong>
+            <div className="text-[24px] flex text-[#555] w-full justify-center items-center font-bold mt-50px p-5 ">
+              <Image
+                src="/warning.png"
+                alt="waring icon"
+                className="mr-3"
+                width={48}
+                height={48}
+              />
+              <p className="mt-1">No Pokémon Types Found </p>
+            </div>
           )}
         </div>
       </div>
