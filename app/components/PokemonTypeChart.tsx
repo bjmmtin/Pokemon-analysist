@@ -26,7 +26,7 @@ function toUpperCaseFirstLetter(word: string): string {
 
 const PokemonTypeChart = () => {
   const { searchTextForPokemonCard } = useSearchTextForPokemonCardContext();
-  const [data, setData] = useState<{ [key: string]: number }>({});
+  const [pokemonTypes, setPokemonTypes] = useState<{ [key: string]: number }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [singleVsDual, setSingleVsDual] = useState<{
@@ -35,7 +35,7 @@ const PokemonTypeChart = () => {
   }>({ single: 0, dual: 0 });
 
   const getPokemonTypes = async (data: PokemonResponse[]) => {
-    const typesCount: { [key: string]: number } = {};
+    const pokemonTypes: { [key: string]: number } = {};
     let singleTypeCount = 0;
     let dualTypeCount = 0;
     await Promise.all(
@@ -55,12 +55,12 @@ const PokemonTypeChart = () => {
         }
 
         details.types.forEach((type: PokemonType) => {
-          typesCount[toUpperCaseFirstLetter(type.type.name)] =
-            (typesCount[toUpperCaseFirstLetter(type.type.name)] || 0) + 1;
+          pokemonTypes[toUpperCaseFirstLetter(type.type.name)] =
+            (pokemonTypes[toUpperCaseFirstLetter(type.type.name)] || 0) + 1;
         });
       })
     );
-    setData(typesCount);
+    setPokemonTypes(pokemonTypes);
     setSingleVsDual({ single: singleTypeCount, dual: dualTypeCount });
   };
 
@@ -102,7 +102,7 @@ const PokemonTypeChart = () => {
     <>
       <div className=" p-4 w-full h-full flex ">
         <div className="flex justify-around lg:flex-row flex-col w-full">
-          <BarChart data={data} />
+          <BarChart data={pokemonTypes} />
           <SingleVsDual data={singleVsDual} />
         </div>
       </div>

@@ -4,11 +4,11 @@ import { useSearchTextForPokemonCardContext } from "../contexts/searchTextForPok
 const Filter = () => {
   const { setSearchTextForPokemonCard } = useSearchTextForPokemonCardContext();
 
-  const [inputTerm, setInputTerm] = useState<string>("");
+  const [searchText, setSearch] = useState<string>("");
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter") {
-      setSearchTextForPokemonCard(inputTerm);
+      setSearchTextForPokemonCard(searchText);
     }
   };
   return (
@@ -41,13 +41,13 @@ const Filter = () => {
           type="text"
           placeholder="Search Pokémon by name..."
           className="p-2 rounded-e-md md:w-[400px] outline-none w-[250px]  shadow-2xl  "
-          value={inputTerm}
-          onChange={(e) => setInputTerm(e.target.value)}
+          value={searchText}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <button
         className="rounded-md text-white hover:bg-blue-600 bg-blueCustom mb-5 mt-0.5 px-3"
-        onClick={() => setSearchTextForPokemonCard(inputTerm)}
+        onClick={() => setSearchTextForPokemonCard(searchText)}
       >
         filter
       </button>
