@@ -8,7 +8,7 @@ const override = {
 
 const Loading = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <PulseLoader
         className="pt-5"
         color={override.color}
