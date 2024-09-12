@@ -43,14 +43,14 @@ const PokemonTypeChart = () => {
     let dualTypeCount = 0;
 
     await Promise.all(
-      data.map(async (pokemon: PokemonResponse) => {
-        const detailsResponse = await fetch(pokemon.url);
-        if (!detailsResponse.ok)
+      data.map(async (pokemon: PokemonResponse, id) => {
+        const response = await fetch(`/api/pokemon/${id + 1}`);
+        if (!response.ok)
           throw new Error(
-            `${detailsResponse.status} ${detailsResponse.statusText} ----> URL(${detailsResponse.url})`
+            `${response.status} ${response.statusText} (${response.url})`
           );
-        const details = await detailsResponse.json();
-        const typeCount = details.types.length;
+        const types: PokemonType[] = await response.json();
+        const typeCount = types.length;
 
         if (typeCount === 1) {
           singleTypeCount++;
@@ -58,7 +58,7 @@ const PokemonTypeChart = () => {
           dualTypeCount++;
         }
 
-        details.types.forEach((type: PokemonType) => {
+        types.forEach((type: PokemonType) => {
           pokemonTypes[toUpperCaseFirstLetter(type.type.name)] =
             (pokemonTypes[toUpperCaseFirstLetter(type.type.name)] || 0) + 1;
         });
@@ -73,7 +73,7 @@ const PokemonTypeChart = () => {
       const response = await fetch(`/api/pokemon/`);
       if (!response.ok)
         throw new Error(
-          `${response.status} ${response.statusText} ----> URL(${response.url})`
+          `${response.status} ${response.statusText} (${response.url})`
         );
       const pokemonList = await response.json();
       const filtered = pokemonList.filter((pokemon: PokemonResponse) =>
