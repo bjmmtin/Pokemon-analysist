@@ -33,9 +33,9 @@ Users can toggle between viewing counts and percentages of each type and filter 
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Getting Tested
+## Running Tests
 
-1. Because you are using Babel for testing transform logic, ensure you have the necessary presets/plugins in the Babel configuration (babel.config.js):
+1. Since you're using Babel for transforming the code in tests, ensure the necessary presets/plugins are configured in babel.config.js:
    ```
    module.exports ={
        "presets": [
@@ -43,9 +43,11 @@ Users can toggle between viewing counts and percentages of each type and filter 
        "@babel/preset-typescript"
        ]
    }
-2. Test the transform lgic:
-    ```
-    npm run test
+   ```
+2. Run the tests for the transformation logic:
+   ```
+   npm run test
+   ```
 
 ## Features
 
@@ -55,4 +57,4 @@ Users can toggle between viewing counts and percentages of each type and filter 
 - Search functionality to filter Pokémon by name.
 - Toggle between showing counts and percentages.
 - Responsive design using Tailwind CSS.
-- Add unit tests for the data transformation logic
+- Includes unit tests for the data transformation logic.
